@@ -141,7 +141,7 @@ void	PhoneBook::search(int size)
 	std::string	input;
 
 	diplay_contacts(size);
-	while (1)
+	while (!std::cin.eof())
 	{
 		std::cout << "insert an id or type EXIT: ";
 		getline(std::cin, input);
