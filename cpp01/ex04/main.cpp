@@ -2,9 +2,27 @@
 #include <iostream>
 #include <fstream>
 
-int main(int ac, char **av)
+void    replace(std::ifstream &ifs, std::ofstream &ofs,
+    std::string &line, std::string &s1, std::string &s2)
 {
     size_t pos;
+
+    while (std::getline(ifs, line))
+    {
+        pos = 0;
+        while ((pos = line.find(s1, pos)) != std::string::npos)
+        {
+            line.erase(pos, s1.size());
+            line = line.substr(0, pos) + s2 + line.substr(pos, line.size());
+            pos += s2.size();
+        }
+        ofs << line + "\n";
+        line.clear();
+    }
+}
+
+int main(int ac, char **av)
+{
     std::string line;
     std::string s1, s2, file;
 
@@ -28,18 +46,7 @@ int main(int ac, char **av)
             return 1;
         }
 
-        while (std::getline(ifs, line))
-        {
-            pos = 0;
-            while ((pos = line.find(s1, pos)) != std::string::npos)
-            {
-                line.erase(pos, s1.size());
-                line = line.substr(0, pos) + s2 + line.substr(pos, line.size());
-                pos += s2.size();
-            }
-            ofs << line + "\n";
-            line.clear();
-        }
+        replace(ifs, ofs, line, s1, s2);
 
         ifs.close();
         ofs.close();

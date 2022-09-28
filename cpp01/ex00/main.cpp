@@ -6,7 +6,7 @@
 /*   By: eel-ghan <eel-ghan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 22:51:11 by eel-ghan          #+#    #+#             */
-/*   Updated: 2022/09/24 19:17:05 by eel-ghan         ###   ########.fr       */
+/*   Updated: 2022/09/29 00:10:31 by eel-ghan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	main(void)
 {
-	Zombie z("foo");
-	Zombie *foo = &z;
+	Zombie *foo = newZombie("foo00");
 
 	foo->announce();
-	randomChump("zombie1");
+	randomChump("foo01");
+	delete foo;
 	return 0;
 }
