@@ -1,6 +1,6 @@
-NAME = conversion_of_scalar_types
+NAME = conversion_of
 
-SRC = main.cpp
+SRC = main.cpp Convertor.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
