@@ -12,7 +12,6 @@ int main()
 
         Form* rrf;
         rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-
     }
     catch(std::exception & e)
     {
@@ -22,6 +21,6 @@ int main()
     {
         std::cerr << error_msg << std::endl;
     }
-    system("Leaks coffee_making");
+    // system("Leaks coffee_making");
     return 0;
 }

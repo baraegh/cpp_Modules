@@ -22,7 +22,7 @@ class Form
     public:
         Form();
         Form(std::string    name, int   grade, int  exeGrade);
-        ~Form();
+        virtual ~Form();
         Form(Form const & obj);
 
         Form &              operator=(Form const & obj);
@@ -30,7 +30,7 @@ class Form
         bool                getIsSigned() const;
         int                 getGrade() const;
         int                 getExeGrade() const;
-        virtual void        beSigned(Bureaucrat obj);
+        void                beSigned(Bureaucrat obj);
         virtual void        execute(Bureaucrat const & executor) const = 0;
 
         class GradeTooHighException : public std::exception

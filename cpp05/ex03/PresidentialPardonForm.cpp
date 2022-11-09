@@ -19,6 +19,13 @@ PresidentialPardonForm::~PresidentialPardonForm()
     std::cout << "[ PresidentialPardonForm ]: destructor called\n";
 }
 
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & obj)
+    : Form(obj)
+{
+    std::cout << "[ PresidentialPardonForm ]: copy constructor called\n";
+    *this = obj;
+}
+
 PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const & obj)
 {
     if (this == &obj)

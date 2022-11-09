@@ -19,11 +19,18 @@ RobotomyRequestForm::~RobotomyRequestForm()
     std::cout << "[ RobotomyRequestForm ]: destructor called\n";
 }
 
-RobotomyRequestForm   &RobotomyRequestForm::operator=(RobotomyRequestForm const & obj)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & obj)
+    :Form(obj)
 {
-     std::cout << "[ RobotomyRequestForm ]: copy assignment operator\n";
-    if (this != &obj )
-        this->_target = obj._target;
+    std::cout << "[ RobotomyRequestForm ]: copy constructor called\n";
+    *this = obj;
+}
+
+RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm const & obj)
+{
+    if (this == &obj)
+        return *this;
+    this->_target = obj._target;
     return *this;
 }
 
