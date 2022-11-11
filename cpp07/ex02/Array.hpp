@@ -12,12 +12,13 @@ class Array
         
     public:
         Array()
-            : _len(0), _arr(new T[_len]){}
+            : _len(0), _arr(nullptr){}
 
         Array(unsigned int n)
             : _len(n), _arr(new T[_len]){}
 
         Array(Array const & arr)
+            : _len(arr._len), _arr(new T[_len])
         {
             *this = arr;
         }
@@ -51,7 +52,7 @@ class Array
 
         ~Array()
         {
-            // delete [] this->_arr;
+            delete [] this->_arr;
         }
 
         class   IndexOutOfBounds : public std::exception
