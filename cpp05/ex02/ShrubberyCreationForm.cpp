@@ -2,32 +2,21 @@
 # include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-    : Form(), _target("")
-{
-    std::cout << "[ ShrubberyCreationForm ]: default constructor called\n";
-}
+    : Form("shrubbery creation", 145, 137), _target("") {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-    : Form("shrubbery creation", 145, 137), _target(target)
-{
-    std::cout << "[ ShrubberyCreationForm ]: constructor called\n";
-}
+    : Form("shrubbery creation", 145, 137), _target(target) {}
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-    std::cout << "[ ShrubberyCreationForm ]: destructor called\n";
-}
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & obj)
     : Form(obj)
 {
-    std::cout << "[ ShrubberyCreationForm ]: copy constructor called\n";
     *this = obj;
 }
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & obj)
 {
-    std::cout << "[ ShrubberyCreationForm ]: copy assignment operator\n";
     if (this != &obj )
         this->_target = obj._target;
     return *this;

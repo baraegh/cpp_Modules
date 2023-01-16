@@ -6,10 +6,14 @@ int main()
 {
     try
     {
-        Form f("form", 1, 1);
-        Bureaucrat b("bureaucrat", 11);
-        b.signForm(f);
-        f.beSigned(b);
+        Form f00("form", 1, 1);
+        Bureaucrat b00("bureaucrat", 1);
+        b00.signForm(f00);
+        f00.beSigned(b00);
+
+        Form f01("form", 3, 2);
+        Bureaucrat b01("bureaucrat", 5);
+        b01.signForm(f01);
     }
     catch(std::exception & e)
     {

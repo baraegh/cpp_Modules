@@ -2,10 +2,7 @@
 #include "Form.hpp"
 
 Form::Form()
-    : _name(""), _isSigned(false), _grade(150), _exeGrade(150)
-{
-    std::cout << "[ Form ]: default constructor called\n";
-}
+    : _name(""), _isSigned(false), _grade(150), _exeGrade(150) {}
 
 Form::Form(std::string    name, int   grade, int  exeGrade)
     : _name(name), _grade(grade), _exeGrade(exeGrade)
@@ -14,25 +11,17 @@ Form::Form(std::string    name, int   grade, int  exeGrade)
         throw GradeTooHighException();
     if (grade > 150 || exeGrade > 150)
         throw GradeTooLowException();
-    std::cout << "[ Form ]: constructor called\n";
     this->_isSigned = false;
 }
 
-Form::~Form()
-{
-    std::cout << "[ Form ]: destructor called\n";
-}
+Form::~Form(){}
 
 Form::Form(Form const & obj)
     : _name(obj._name), _isSigned(obj._isSigned), _grade(obj._grade),
-    _exeGrade(obj._exeGrade)
-{
-    std::cout << "[ Form ]: copy constructor called\n";
-}
+    _exeGrade(obj._exeGrade) {}
 
 Form &      Form::operator=(Form const & obj)
 {
-    std::cout << "[ Form ]: copy assignement operator\n";
     if (this != &obj )
         this->_isSigned = obj._isSigned;
     return *this;

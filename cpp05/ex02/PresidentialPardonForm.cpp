@@ -3,26 +3,16 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm()
-    : Form(), _target("")
-{
-    std::cout << "[ PresidentialPardonForm ]: default constructor called\n";
-}
+    : Form("presidential pardon", 25, 5), _target("") {}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
-    : Form("presidential pardon", 72, 45) , _target(target)
-{
-    std::cout << "[ PresidentialPardonForm ]: constructor called\n";
-}
+    : Form("presidential pardon", 25, 5) , _target(target) {}
 
-PresidentialPardonForm::~PresidentialPardonForm()
-{
-    std::cout << "[ PresidentialPardonForm ]: destructor called\n";
-}
+PresidentialPardonForm::~PresidentialPardonForm() {}
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & obj)
     : Form(obj)
 {
-    std::cout << "[ PresidentialPardonForm ]: copy constructor called\n";
     *this = obj;
 }
 

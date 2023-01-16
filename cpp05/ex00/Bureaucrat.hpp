@@ -41,7 +41,6 @@ class Bureaucrat
                 {
                     return "Grade too low";
                 }
-
         };
 };
 

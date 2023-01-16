@@ -3,26 +3,16 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
-    : Form(), _target("")
-{
-    std::cout << "[ RobotomyRequestForm ]: default constructor called\n";
-}
+    : Form("robotomy request", 72, 45), _target("") {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-    : Form("robotomy request", 72, 45) , _target(target)
-{
-    std::cout << "[ RobotomyRequestForm ]: constructor called\n";
-}
+    : Form("robotomy request", 72, 45) , _target(target) {}
 
-RobotomyRequestForm::~RobotomyRequestForm()
-{
-    std::cout << "[ RobotomyRequestForm ]: destructor called\n";
-}
+RobotomyRequestForm::~RobotomyRequestForm() {}
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & obj)
     :Form(obj)
 {
-    std::cout << "[ RobotomyRequestForm ]: copy constructor called\n";
     *this = obj;
 }
 
@@ -40,5 +30,5 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
         throw GradeTooLowException();
     else if (!this->getIsSigned())
         throw FormNotSigned();
-    std::cout << this->_target << " has been robotomized successfully 50%% of the time\n";
+    std::cout << this->_target << " has been robotomized successfully 50% of the time\n";
 }

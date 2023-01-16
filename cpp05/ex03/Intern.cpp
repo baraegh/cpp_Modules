@@ -30,7 +30,10 @@ Form    *Intern::makeForm(std::string formName, std::string target)
     for (int i = 0; i < 3; i++)
     {
         if (this->forms[i]->getName() == formName)
+        {
+            std::cout << "Intern creates " << formName << std::endl;
             return (this->forms[i]);
+        }
     }
     throw FormDoesNotExist();
 }
