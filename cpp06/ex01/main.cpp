@@ -17,5 +17,6 @@ int main()
     std:: cout << data << std::endl;
     std:: cout << data->nbr << std::endl;
 
+    delete data;
     return 0;
 }

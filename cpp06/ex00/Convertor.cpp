@@ -83,31 +83,40 @@ void    Convertor::parsing()
             this->_char_value = _str[0];
             return;
         }
-        i++;
+        
         if (_str[i] == '-' || _str[i] == '+')
+        {
+            i++;
+            if (_str[i] == '-' || _str[i] == '+')
+            {
+                this->_type = invalidType;
+                return;
+            }
+            else if (isalpha(_str[i]) || ((_str[i--] == '-' || _str[i--] == '+') && _str[i] == '.'))
         {
             this->_type = invalidType;
             return;
         }
-        else if (isalpha(_str[i]) || ((_str[i] == '-' || _str[i] == '+') && _str[i] == '.'))
-        {
-            this->_type = invalidType;
-            return;
         }
         for (; i < _str.length(); i++)
         {
             if (_str[i] == '.' )
             {
+                i++;
                 if (_str[_str.length() - 1] == 'f')
                 {
+                    if (!isdigit(_str[_str.length() - 2]))
+                    {
+                        this->_type = invalidType;
+                        return;
+                    }
                     this->_type = floatType;
                     this->_float_value = atof(_str.c_str());
                     return;
                 }
-                i++;
                 for( ; i < _str.length(); i++)
                 {
-                    if (isalpha(_str[i]))
+                    if (!isdigit(_str[_str.length() - 1]))
                     {
                         this->_type = invalidType;
                         return;
@@ -117,7 +126,7 @@ void    Convertor::parsing()
                     return;
                 }
             }
-            else if (isalpha(_str[i]))
+            else if (!isdigit(_str[i]))
             {
                 this->_type = invalidType;
                 return;
@@ -133,7 +142,7 @@ void    Convertor::parsing()
         this->_int_value = atoi(_str.c_str());
         return;
     }
-    if (isalpha(_str[i]))
+    else
     {
         if (_str.length() > 1)
         {
@@ -171,10 +180,9 @@ void    Convertor::fromFloat()
 {
     if (this->_float_value > INT_MAX || this->_float_value < INT_MIN)
         this->_status[1] = 1;
-    this->_char_value = static_cast<char>(this->_float_value);
     this->_int_value = static_cast<int>(this->_float_value);
     if (this->_int_value > INT_MAX || this->_int_value < INT_MIN
-        || std::isnan(this->_float_value) || std::isnan(this->_float_value))
+        || std::isnan(this->_float_value))
     {
         this->_status[1] = 1;
         this->_status[0] = 1;
@@ -183,13 +191,14 @@ void    Convertor::fromFloat()
         this->_status[0] = 1;
     else if (!isprint(this->_int_value))
         this->_status[0] = 2;
+    this->_char_value = static_cast<char>(this->_float_value);
     this->_double_value = static_cast<double>(this->_double_value);
 }
 
 void    Convertor::fromDouble()
 {
     if (this->_double_value > INT_MAX || this->_double_value < INT_MIN
-        || std::isnan(this->_double_value) || std::isnan(this->_double_value))
+        || std::isnan(this->_double_value))
     {
         this->_status[1] = 1;
         this->_status[0] = 1;

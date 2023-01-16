@@ -4,11 +4,11 @@
 
 Base    *generate(void)
 {
-    srand((unsigned)time(NULL));
-    int x = rand() % 2;
+    srand(time(NULL));
+    int x = rand() % 3;
     if (x == 0)
         return new A;
-    else if ( x == 1)
+    if ( x == 1)
         return new B;
     return  new C;
 }
