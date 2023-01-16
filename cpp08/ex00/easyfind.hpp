@@ -17,14 +17,12 @@ class   NoOccurrenceFound : public std::exception
 template <typename T>
 void easyFind(T & con, const int & value)
 {
-    typename T::iterator it = con.begin();
-    for ( ; it != con.end(); it++)
+    typename T::iterator it = std::find(con.begin(), con.end(), value);
+    
+    if (it != con.end())
     {
-        if (*it == value)
-        {
-            std::cout << value << " founded in the container\n";
-            return;
-        }
+        std::cout << value << " founded in the container\n";
+        return ;
     }
     throw NoOccurrenceFound();
 }

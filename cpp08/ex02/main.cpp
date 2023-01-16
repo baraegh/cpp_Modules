@@ -3,6 +3,7 @@
 
 int main()
 {
+    std::cout << "---------MutantStack---------\n";
     MutantStack<int> mstack;
 
     mstack.push(5);
@@ -32,6 +33,35 @@ int main()
     }
 
     std::stack<int> s(mstack);
+
+    std::cout << "\n---------List---------\n" << std::endl;
+
+    std::list< int > lst;
+
+    lst.push_back(5);
+    lst.push_back(17);
+
+    std::cout << lst.back() << std::endl;
+
+    lst.pop_back();
+    std::cout << lst.size() << std::endl;
+
+    lst.push_back(3);
+    lst.push_back(5);
+    lst.push_back(737);
+    lst.push_back(0);
+
+    std::list<int>::iterator lst_it = lst.begin();
+    std::list<int>::iterator lst_ite = lst.end();
+    ++it;
+    --it;
+    while (lst_it != lst_ite)
+    {
+        std::cout << *lst_it << std::endl;
+        ++lst_it;
+    }
+    std::list<int> l(lst);
+
 
     return 0;
 }

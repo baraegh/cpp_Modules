@@ -24,8 +24,8 @@ int main()
     try
     {
         std::vector<int> v(10000);
-        std::srand( time ( NULL ) );
-        std::generate( v.begin(), v.end(), std::rand );
+        std::srand(time(NULL));
+        std::generate(v.begin(), v.end(), std::rand);
 
         Span    p(v.size());
         p.addNumber(v.begin(), v.end());

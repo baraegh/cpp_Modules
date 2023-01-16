@@ -8,7 +8,7 @@
 int main()
 {
     std::cout << "------- vector ------" << std::endl;
-    std::vector <int> v;
+    std::vector<int> v;
 
     for (int i = 0; i <= 20; i++)
     {
@@ -31,7 +31,7 @@ int main()
 	}
 
 	std::cout << "\n------- list ------" << std::endl;
-    std::list <int> _list;
+    std::list<int> _list;
 
     for (int i = 0; i <= 10; i++)
     {
