@@ -12,18 +12,22 @@ class Array
         
     public:
         Array()
-            : _len(0), _arr(nullptr){}
+            : _len(0), _arr(NULL){}
 
         Array(unsigned int n)
-            : _len(n), _arr(new T[_len]){}
+            : _len(n), _arr(new T[_len])
+        {
+            for (unsigned int i = 0; i < this->_len; i++)
+                this->_arr[i] = 0;
+        }
 
         Array(Array const & arr)
             : _len(arr._len), _arr(new T[_len])
         {
             *this = arr;
         }
-
-        Array & operator=(Array const & arr)
+        
+        Array & operator=(Array const & arr) 
         {
             this->_len = arr._len;
             delete this->_arr;
@@ -38,7 +42,7 @@ class Array
             return *this;
         }
 
-        T & operator[](int index)
+        T & operator[](int index) const
         {
             if (index < 0 || (unsigned int)index >= this->_len)
                 throw IndexOutOfBounds();

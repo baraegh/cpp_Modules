@@ -10,6 +10,7 @@ int main()
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
+
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -47,13 +48,7 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
     
-    delete [] mirror;//
-    // system("leaks array");
+    delete [] mirror;
     return 0;
 }
